@@ -1,0 +1,15 @@
+/* 
+ * File:   eeprom.h
+ * Author: lenovo
+ *
+ * Created on 23 September, 2026, 6:15 PM
+ */
+
+#ifndef EEPROM_H
+#define	EEPROM_H
+
+void write_internal_eeprom(unsigned char address, unsigned char data);
+unsigned char read_internal_eeprom(unsigned char address);
+
+#endif	/* EEPROM_H */
+
