@@ -18186,31 +18186,25 @@ unsigned char read_digital_keypad(unsigned char detection_type);
 void init_timer0(void);
 # 12 "main.c" 2
 
-
 volatile unsigned int duty_cycle=10;
 volatile unsigned int flag=0;
 volatile unsigned int period=100;
 int delay=0;
 
-unsigned char read_digital_keypad(unsigned char detection_type)
-{
+unsigned char read_digital_keypad(unsigned char detection_type){
  static unsigned char once = 1;
 
- if (detection_type == 1)
- {
-  if (((PORTC & 0x0F) != 0x0F) && once)
-  {
+ if (detection_type == 1){
+  if (((PORTC & 0x0F) != 0x0F) && once){
    once = 0;
 
    return (PORTC & 0x0F);
   }
-  else if ((PORTC & 0x0F) == 0x0F)
-  {
+  else if ((PORTC & 0x0F) == 0x0F){
    once = 1;
   }
  }
- else if (detection_type == 0)
- {
+ else if (detection_type == 0){
   return (PORTC & 0x0F);
  }
 
@@ -18232,7 +18226,6 @@ void main(void) {
     init_config();
     while(1){
         int key = read_digital_keypad(1);
-# 68 "main.c"
         if(key==0x0E){
             duty_cycle=100;
             flag=1;

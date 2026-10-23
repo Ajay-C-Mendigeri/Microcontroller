@@ -65,11 +65,11 @@
 [v ___omul __omul `(uo  1 e 8 0 ]
 "14 D:\Microcontroller\A11.X\isr.c
 [v _isr isr `IIH(v  1 e 1 0 ]
-"19 D:\Microcontroller\A11.X\main.c
+"18 D:\Microcontroller\A11.X\main.c
 [v _read_digital_keypad read_digital_keypad `(uc  1 e 1 0 ]
-"44
+"38
 [v _init_config init_config `(v  1 e 1 0 ]
-"55
+"49
 [v _main main `(v  1 e 1 0 ]
 "12 D:\Microcontroller\A11.X\timer2.c
 [v _init_timer0 init_timer0 `(v  1 e 1 0 ]
@@ -101,37 +101,40 @@
 [v _TMR0IE TMR0IE `VEb  1 e 0 @32661 ]
 "39274
 [v _TMR0IF TMR0IF `VEb  1 e 0 @32658 ]
-"14 D:\Microcontroller\A11.X\main.c
+"13 D:\Microcontroller\A11.X\main.c
 [v _duty_cycle duty_cycle `VEui  1 e 2 0 ]
-"15
+"14
 [v _flag flag `VEui  1 e 2 0 ]
-"16
+"15
 [v _period period `VEui  1 e 2 0 ]
-"55
+"49
 [v _main main `(v  1 e 1 0 ]
 {
-"57
+"51
 {
-"58
+"52
 [v main@key key `i  1 a 2 4 ]
-"72
+"57
 }
-"74
+"59
 } 0
-"19
+"18
 [v _read_digital_keypad read_digital_keypad `(uc  1 e 1 0 ]
 {
 [v read_digital_keypad@detection_type detection_type `uc  1 p 1 wreg ]
-"21
+"19
 [v read_digital_keypad@once once `uc  1 s 1 once ]
-"23
+"21
+{
 [v read_digital_keypad@detection_type detection_type `uc  1 p 1 2 ]
-"42
+"30
+}
+"36
 } 1
-"44
+"38
 [v _init_config init_config `(v  1 e 1 0 ]
 {
-"53
+"47
 } 0
 "12 D:\Microcontroller\A11.X\timer2.c
 [v _init_timer0 init_timer0 `(v  1 e 1 0 ]
@@ -143,5 +146,5 @@
 {
 "16
 [v isr@timer_count timer_count `ui  1 s 2 timer_count ]
-"43
+"40
 } 0

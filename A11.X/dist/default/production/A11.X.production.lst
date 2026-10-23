@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V4.00 build 20260614213421 
-                                                                                               Fri Oct 23 11:16:27 2026
+                                                                                               Fri Oct 23 11:39:56 2026
 
 Microchip MPLAB XC8 C Compiler v4.00 build 20260614213421 Og1 
      1                           	processor	18F4580
@@ -1347,17 +1347,17 @@ Microchip MPLAB XC8 C Compiler v4.00 build 20260614213421 Og1
   1333   000FFF                     TOSU            equ	4095	;# 
   1334                           
   1335                           	psect	idataCOMRAM
-  1336   000794                     __pidataCOMRAM:
+  1336   00078A                     __pidataCOMRAM:
   1337                           	callstack 0
   1338                           
   1339                           ;initializer for _period
-  1340   000794  0064               	dw	100
+  1340   00078A  0064               	dw	100
   1341                           
   1342                           ;initializer for _duty_cycle
-  1343   000796  000A               	dw	10
+  1343   00078C  000A               	dw	10
   1344                           
   1345                           ;initializer for read_digital_keypad@once
-  1346   000798  01                 	db	1
+  1346   00078E  01                 	db	1
   1347   000FD6                     _TMR0           set	4054
   1348   000F81                     _PORTB          set	3969
   1349   000F93                     _TRISB          set	3987
@@ -1376,45 +1376,45 @@ Microchip MPLAB XC8 C Compiler v4.00 build 20260614213421 Og1
   1362                           ; #config settings
   1363                           
   1364                           	psect	cinit
-  1365   000738                     __pcinit:
+  1365   00072E                     __pcinit:
   1366                           	callstack 0
-  1367   000738                     start_initialization:
+  1367   00072E                     start_initialization:
   1368                           	callstack 0
-  1369   000738                     __initialization:
+  1369   00072E                     __initialization:
   1370                           	callstack 0
   1371                           
   1372                           ; Initialize objects allocated to COMRAM (5 bytes)
   1373                           ; load TBLPTR registers with __pidataCOMRAM
-  1374   000738  0E94               	movlw	low __pidataCOMRAM
-  1375   00073A  6EF6               	movwf	tblptrl,c
-  1376   00073C  0E07               	movlw	high __pidataCOMRAM
-  1377   00073E  6EF7               	movwf	tblptrh,c
-  1378   000740  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
-  1379   000742  6EF8               	movwf	tblptru,c
-  1380   000744  EE00  F00F         	lfsr	0,__pdataCOMRAM
-  1381   000748  EE10 F005          	lfsr	1,5
-  1382   00074C                     copy_data0:
-  1383   00074C  0009               	tblrd		*+
-  1384   00074E  CFF5 FFEE          	movff	tablat,postinc0
-  1385   000752  50E5               	movf	postdec1,w,c
-  1386   000754  50E1               	movf	fsr1l,w,c
-  1387   000756  E1FA               	bnz	copy_data0
+  1374   00072E  0E8A               	movlw	low __pidataCOMRAM
+  1375   000730  6EF6               	movwf	tblptrl,c
+  1376   000732  0E07               	movlw	high __pidataCOMRAM
+  1377   000734  6EF7               	movwf	tblptrh,c
+  1378   000736  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
+  1379   000738  6EF8               	movwf	tblptru,c
+  1380   00073A  EE00  F00F         	lfsr	0,__pdataCOMRAM
+  1381   00073E  EE10 F005          	lfsr	1,5
+  1382   000742                     copy_data0:
+  1383   000742  0009               	tblrd		*+
+  1384   000744  CFF5 FFEE          	movff	tablat,postinc0
+  1385   000748  50E5               	movf	postdec1,w,c
+  1386   00074A  50E1               	movf	fsr1l,w,c
+  1387   00074C  E1FA               	bnz	copy_data0
   1388                           
   1389                           ; Clear objects allocated to COMRAM (7 bytes)
-  1390   000758  EE00  F002         	lfsr	0,__pbssCOMRAM
-  1391   00075C  0E07               	movlw	7
-  1392   00075E                     clear_0:
-  1393   00075E  6AEE               	clrf	postinc0,c
-  1394   000760  06E8               	decf	wreg,f,c
-  1395   000762  E1FD               	bnz	clear_0
-  1396   000764                     end_of_initialization:
+  1390   00074E  EE00  F002         	lfsr	0,__pbssCOMRAM
+  1391   000752  0E07               	movlw	7
+  1392   000754                     clear_0:
+  1393   000754  6AEE               	clrf	postinc0,c
+  1394   000756  06E8               	decf	wreg,f,c
+  1395   000758  E1FD               	bnz	clear_0
+  1396   00075A                     end_of_initialization:
   1397                           	callstack 0
-  1398   000764                     __end_of__initialization:
+  1398   00075A                     __end_of__initialization:
   1399                           	callstack 0
-  1400   000764  9001               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
-  1401   000766  9201               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
-  1402   000768  0100               	movlb	0
-  1403   00076A  EF7F  F003         	goto	_main	;jump to C main() function
+  1400   00075A  9001               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
+  1401   00075C  9201               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+  1402   00075E  0100               	movlb	0
+  1403   000760  EF7A  F003         	goto	_main	;jump to C main() function
   1404                           
   1405                           	psect	bssCOMRAM
   1406   000002                     __pbssCOMRAM:
@@ -1472,7 +1472,7 @@ Microchip MPLAB XC8 C Compiler v4.00 build 20260614213421 Og1
   1458 ;;
   1459 ;; *************** function _main *****************
   1460 ;; Defined at:
-  1461 ;;		line 55 in file "main.c"
+  1461 ;;		line 49 in file "main.c"
   1462 ;; Parameters:    Size  Location     Type
   1463 ;;		None
   1464 ;; Auto vars:     Size  Location     Type
@@ -1501,51 +1501,51 @@ Microchip MPLAB XC8 C Compiler v4.00 build 20260614213421 Og1
   1487 ;;
   1488                           
   1489                           	psect	text0
-  1490   0006FE                     __ptext0:
+  1490   0006F4                     __ptext0:
   1491                           	callstack 0
-  1492   0006FE                     _main:
+  1492   0006F4                     _main:
   1493                           	callstack 28
-  1494   0006FE                     
-  1495                           ;main.c: 56:     init_config();
-  1496   0006FE  ECC2  F003         	call	_init_config	;wreg free
-  1497   000702                     l925:
+  1494   0006F4                     
+  1495                           ;main.c: 50:     init_config();
+  1496   0006F4  ECBD  F003         	call	_init_config	;wreg free
+  1497   0006F8                     l924:
   1498                           
-  1499                           ;main.c: 58:         int key = read_digital_keypad(1);
-  1500   000702  0E01               	movlw	1
-  1501   000704  EC45  F003         	call	_read_digital_keypad
-  1502   000708  6E0C               	movwf	??_main^0,c
-  1503   00070A  500C               	movf	??_main^0,w,c
-  1504   00070C  6E0D               	movwf	main@key^0,c
-  1505   00070E  6A0E               	clrf	(main@key+1)^0,c
-  1506   000710                     
-  1507                           ;main.c: 68:         if(key==0x0E){
-  1508   000710  0E0E               	movlw	14
-  1509   000712  180D               	xorwf	main@key^0,w,c
-  1510   000714  100E               	iorwf	(main@key+1)^0,w,c
-  1511   000716  A4D8               	btfss	status,2,c
-  1512   000718  EF90  F003         	goto	u61
-  1513   00071C  EF92  F003         	goto	u60
-  1514   000720                     u61:
-  1515   000720  EF81  F003         	goto	l925
-  1516   000724                     u60:
-  1517   000724                     
-  1518                           ;main.c: 69:             duty_cycle=100;
-  1519   000724  6A12               	clrf	(_duty_cycle+1)^0,c	;volatile
-  1520   000726  0E64               	movlw	100
-  1521   000728  6E11               	movwf	_duty_cycle^0,c	;volatile
+  1499                           ;main.c: 52:         int key = read_digital_keypad(1);
+  1500   0006F8  0E01               	movlw	1
+  1501   0006FA  EC40  F003         	call	_read_digital_keypad
+  1502   0006FE  6E0C               	movwf	??_main^0,c
+  1503   000700  500C               	movf	??_main^0,w,c
+  1504   000702  6E0D               	movwf	main@key^0,c
+  1505   000704  6A0E               	clrf	(main@key+1)^0,c
+  1506   000706                     
+  1507                           ;main.c: 53:         if(key==0x0E){
+  1508   000706  0E0E               	movlw	14
+  1509   000708  180D               	xorwf	main@key^0,w,c
+  1510   00070A  100E               	iorwf	(main@key+1)^0,w,c
+  1511   00070C  A4D8               	btfss	status,2,c
+  1512   00070E  EF8B  F003         	goto	u61
+  1513   000712  EF8D  F003         	goto	u60
+  1514   000716                     u61:
+  1515   000716  EF7C  F003         	goto	l924
+  1516   00071A                     u60:
+  1517   00071A                     
+  1518                           ;main.c: 54:             duty_cycle=100;
+  1519   00071A  6A12               	clrf	(_duty_cycle+1)^0,c	;volatile
+  1520   00071C  0E64               	movlw	100
+  1521   00071E  6E11               	movwf	_duty_cycle^0,c	;volatile
   1522                           
-  1523                           ;main.c: 70:             flag=1;
-  1524   00072A  6A07               	clrf	(_flag+1)^0,c	;volatile
-  1525   00072C  0E01               	movlw	1
-  1526   00072E  6E06               	movwf	_flag^0,c	;volatile
-  1527   000730  EF81  F003         	goto	l925
-  1528   000734  EF07  F000         	goto	start
-  1529   000738                     __end_of_main:
+  1523                           ;main.c: 55:             flag=1;
+  1524   000720  6A07               	clrf	(_flag+1)^0,c	;volatile
+  1525   000722  0E01               	movlw	1
+  1526   000724  6E06               	movwf	_flag^0,c	;volatile
+  1527   000726  EF7C  F003         	goto	l924
+  1528   00072A  EF07  F000         	goto	start
+  1529   00072E                     __end_of_main:
   1530                           	callstack 0
   1531                           
   1532 ;; *************** function _read_digital_keypad *****************
   1533 ;; Defined at:
-  1534 ;;		line 19 in file "main.c"
+  1534 ;;		line 18 in file "main.c"
   1535 ;; Parameters:    Size  Location     Type
   1536 ;;  detection_ty    1    wreg     unsigned char 
   1537 ;; Auto vars:     Size  Location     Type
@@ -1574,87 +1574,86 @@ Microchip MPLAB XC8 C Compiler v4.00 build 20260614213421 Og1
   1560 ;;
   1561                           
   1562                           	psect	text1
-  1563   00068A                     __ptext1:
+  1563   000680                     __ptext1:
   1564                           	callstack 0
-  1565   00068A                     _read_digital_keypad:
+  1565   000680                     _read_digital_keypad:
   1566                           	callstack 29
   1567                           
   1568                           ;incstack = 0
   1569                           ;read_digital_keypad@detection_type stored from wreg
-  1570   00068A  6E0B               	movwf	read_digital_keypad@detection_type^0,c
-  1571   00068C                     
-  1572                           ;main.c: 19: unsigned char read_digital_keypad(unsigned char detection_type);main.c: 20:
-      +                           {;main.c: 21:  static unsigned char once = 1;;main.c: 23:  if (detection_type == 1)
-  1573   00068C  040B               	decf	read_digital_keypad@detection_type^0,w,c
-  1574   00068E  A4D8               	btfss	status,2,c
-  1575   000690  EF4C  F003         	goto	u11
-  1576   000694  EF4E  F003         	goto	u10
-  1577   000698                     u11:
-  1578   000698  EF73  F003         	goto	l905
-  1579   00069C                     u10:
-  1580   00069C                     
-  1581                           ;main.c: 24:  {;main.c: 25:   if (((PORTC & 0x0F) != 0x0F) && once)
-  1582   00069C  5082               	movf	130,w,c	;volatile
-  1583   00069E  0B0F               	andlw	15
-  1584   0006A0  0A0F               	xorlw	15
-  1585   0006A2  B4D8               	btfsc	status,2,c
-  1586   0006A4  EF56  F003         	goto	u21
-  1587   0006A8  EF58  F003         	goto	u20
-  1588   0006AC                     u21:
-  1589   0006AC  EF65  F003         	goto	l901
-  1590   0006B0                     u20:
-  1591   0006B0  5013               	movf	read_digital_keypad@once^0,w,c
-  1592   0006B2  B4D8               	btfsc	status,2,c
-  1593   0006B4  EF5E  F003         	goto	u31
-  1594   0006B8  EF60  F003         	goto	u30
-  1595   0006BC                     u31:
-  1596   0006BC  EF65  F003         	goto	l901
-  1597   0006C0                     u30:
-  1598   0006C0                     
-  1599                           ;main.c: 26:   {;main.c: 27:    once = 0;
-  1600   0006C0  6A13               	clrf	read_digital_keypad@once^0,c
-  1601   0006C2                     l895:
+  1570   000680  6E0B               	movwf	read_digital_keypad@detection_type^0,c
+  1571   000682                     
+  1572                           ;main.c: 19:  static unsigned char once = 1;;main.c: 21:  if (detection_type == 1){
+  1573   000682  040B               	decf	read_digital_keypad@detection_type^0,w,c
+  1574   000684  A4D8               	btfss	status,2,c
+  1575   000686  EF47  F003         	goto	u11
+  1576   00068A  EF49  F003         	goto	u10
+  1577   00068E                     u11:
+  1578   00068E  EF6E  F003         	goto	l904
+  1579   000692                     u10:
+  1580   000692                     
+  1581                           ;main.c: 22:   if (((PORTC & 0x0F) != 0x0F) && once){
+  1582   000692  5082               	movf	130,w,c	;volatile
+  1583   000694  0B0F               	andlw	15
+  1584   000696  0A0F               	xorlw	15
+  1585   000698  B4D8               	btfsc	status,2,c
+  1586   00069A  EF51  F003         	goto	u21
+  1587   00069E  EF53  F003         	goto	u20
+  1588   0006A2                     u21:
+  1589   0006A2  EF60  F003         	goto	l900
+  1590   0006A6                     u20:
+  1591   0006A6  5013               	movf	read_digital_keypad@once^0,w,c
+  1592   0006A8  B4D8               	btfsc	status,2,c
+  1593   0006AA  EF59  F003         	goto	u31
+  1594   0006AE  EF5B  F003         	goto	u30
+  1595   0006B2                     u31:
+  1596   0006B2  EF60  F003         	goto	l900
+  1597   0006B6                     u30:
+  1598   0006B6                     
+  1599                           ;main.c: 23:    once = 0;
+  1600   0006B6  6A13               	clrf	read_digital_keypad@once^0,c
+  1601   0006B8                     l894:
   1602                           
-  1603                           ;main.c: 29:    return (PORTC & 0x0F);
-  1604   0006C2  5082               	movf	130,w,c	;volatile
-  1605   0006C4  0B0F               	andlw	15
-  1606   0006C6  EF7E  F003         	goto	l29
-  1607   0006CA                     l901:
-  1608   0006CA  5082               	movf	130,w,c	;volatile
-  1609   0006CC  0B0F               	andlw	15
-  1610   0006CE  0A0F               	xorlw	15
-  1611   0006D0  A4D8               	btfss	status,2,c
-  1612   0006D2  EF6D  F003         	goto	u41
-  1613   0006D6  EF6F  F003         	goto	u40
-  1614   0006DA                     u41:
-  1615   0006DA  EF7D  F003         	goto	l911
-  1616   0006DE                     u40:
-  1617   0006DE                     
-  1618                           ;main.c: 32:   {;main.c: 33:    once = 1;
-  1619   0006DE  0E01               	movlw	1
-  1620   0006E0  6E13               	movwf	read_digital_keypad@once^0,c
-  1621   0006E2  EF7D  F003         	goto	l911
-  1622   0006E6                     l905:
-  1623   0006E6  500B               	movf	read_digital_keypad@detection_type^0,w,c
-  1624   0006E8  A4D8               	btfss	status,2,c
-  1625   0006EA  EF79  F003         	goto	u51
-  1626   0006EE  EF7B  F003         	goto	u50
-  1627   0006F2                     u51:
-  1628   0006F2  EF7D  F003         	goto	l911
-  1629   0006F6                     u50:
-  1630   0006F6  EF61  F003         	goto	l895
-  1631   0006FA                     l911:
+  1603                           ;main.c: 25:    return (PORTC & 0x0F);
+  1604   0006B8  5082               	movf	130,w,c	;volatile
+  1605   0006BA  0B0F               	andlw	15
+  1606   0006BC  EF79  F003         	goto	l29
+  1607   0006C0                     l900:
+  1608   0006C0  5082               	movf	130,w,c	;volatile
+  1609   0006C2  0B0F               	andlw	15
+  1610   0006C4  0A0F               	xorlw	15
+  1611   0006C6  A4D8               	btfss	status,2,c
+  1612   0006C8  EF68  F003         	goto	u41
+  1613   0006CC  EF6A  F003         	goto	u40
+  1614   0006D0                     u41:
+  1615   0006D0  EF78  F003         	goto	l910
+  1616   0006D4                     u40:
+  1617   0006D4                     
+  1618                           ;main.c: 28:    once = 1;
+  1619   0006D4  0E01               	movlw	1
+  1620   0006D6  6E13               	movwf	read_digital_keypad@once^0,c
+  1621   0006D8  EF78  F003         	goto	l910
+  1622   0006DC                     l904:
+  1623   0006DC  500B               	movf	read_digital_keypad@detection_type^0,w,c
+  1624   0006DE  A4D8               	btfss	status,2,c
+  1625   0006E0  EF74  F003         	goto	u51
+  1626   0006E4  EF76  F003         	goto	u50
+  1627   0006E8                     u51:
+  1628   0006E8  EF78  F003         	goto	l910
+  1629   0006EC                     u50:
+  1630   0006EC  EF5C  F003         	goto	l894
+  1631   0006F0                     l910:
   1632                           
-  1633                           ;main.c: 41:  return 0xFF;
-  1634   0006FA  0EFF               	movlw	255
-  1635   0006FC                     l29:
-  1636   0006FC  0012               	return		;funcret
-  1637   0006FE                     __end_of_read_digital_keypad:
+  1633                           ;main.c: 35:  return 0xFF;
+  1634   0006F0  0EFF               	movlw	255
+  1635   0006F2                     l29:
+  1636   0006F2  0012               	return		;funcret
+  1637   0006F4                     __end_of_read_digital_keypad:
   1638                           	callstack 0
   1639                           
   1640 ;; *************** function _init_config *****************
   1641 ;; Defined at:
-  1642 ;;		line 44 in file "main.c"
+  1642 ;;		line 38 in file "main.c"
   1643 ;; Parameters:    Size  Location     Type
   1644 ;;		None
   1645 ;; Auto vars:     Size  Location     Type
@@ -1683,30 +1682,30 @@ Microchip MPLAB XC8 C Compiler v4.00 build 20260614213421 Og1
   1668 ;;
   1669                           
   1670                           	psect	text2
-  1671   000784                     __ptext2:
+  1671   00077A                     __ptext2:
   1672                           	callstack 0
-  1673   000784                     _init_config:
+  1673   00077A                     _init_config:
   1674                           	callstack 28
-  1675   000784                     
-  1676                           ;main.c: 45:     TRISB = 0X00;
-  1677   000784  6A93               	clrf	147,c	;volatile
+  1675   00077A                     
+  1676                           ;main.c: 39:     TRISB = 0X00;
+  1677   00077A  6A93               	clrf	147,c	;volatile
   1678                           
-  1679                           ;main.c: 46:     PORTB = 0X00;
-  1680   000786  6A81               	clrf	129,c	;volatile
+  1679                           ;main.c: 40:     PORTB = 0X00;
+  1680   00077C  6A81               	clrf	129,c	;volatile
   1681                           
-  1682                           ;main.c: 47:     RB0 = 1;
-  1683   000788  8081               	bsf	3969,0,c	;volatile
-  1684   00078A                     
-  1685                           ;main.c: 49:     init_timer0();
-  1686   00078A  ECB7  F003         	call	_init_timer0	;wreg free
-  1687   00078E                     
-  1688                           ;main.c: 50:     GIE = 1;
-  1689   00078E  8EF2               	bsf	4082,7,c	;volatile
-  1690   000790                     
-  1691                           ;main.c: 51:     PEIE = 1;
-  1692   000790  8CF2               	bsf	4082,6,c	;volatile
-  1693   000792  0012               	return		;funcret
-  1694   000794                     __end_of_init_config:
+  1682                           ;main.c: 41:     RB0 = 1;
+  1683   00077E  8081               	bsf	3969,0,c	;volatile
+  1684   000780                     
+  1685                           ;main.c: 43:     init_timer0();
+  1686   000780  ECB2  F003         	call	_init_timer0	;wreg free
+  1687   000784                     
+  1688                           ;main.c: 44:     GIE = 1;
+  1689   000784  8EF2               	bsf	4082,7,c	;volatile
+  1690   000786                     
+  1691                           ;main.c: 45:     PEIE = 1;
+  1692   000786  8CF2               	bsf	4082,6,c	;volatile
+  1693   000788  0012               	return		;funcret
+  1694   00078A                     __end_of_init_config:
   1695                           	callstack 0
   1696                           
   1697 ;; *************** function _init_timer0 *****************
@@ -1740,38 +1739,38 @@ Microchip MPLAB XC8 C Compiler v4.00 build 20260614213421 Og1
   1725 ;;
   1726                           
   1727                           	psect	text3
-  1728   00076E                     __ptext3:
+  1728   000764                     __ptext3:
   1729                           	callstack 0
-  1730   00076E                     _init_timer0:
+  1730   000764                     _init_timer0:
   1731                           	callstack 28
-  1732   00076E                     
+  1732   000764                     
   1733                           ;timer2.c: 14:     T0CS = 0;
-  1734   00076E  9AD5               	bcf	4053,5,c	;volatile
+  1734   000764  9AD5               	bcf	4053,5,c	;volatile
   1735                           
   1736                           ;timer2.c: 15:     PSA = 1;
-  1737   000770  86D5               	bsf	4053,3,c	;volatile
+  1737   000766  86D5               	bsf	4053,3,c	;volatile
   1738                           
   1739                           ;timer2.c: 16:     T0PS2 = 0;
-  1740   000772  94D5               	bcf	4053,2,c	;volatile
+  1740   000768  94D5               	bcf	4053,2,c	;volatile
   1741                           
   1742                           ;timer2.c: 17:     T0PS1 = 0;
-  1743   000774  92D5               	bcf	4053,1,c	;volatile
+  1743   00076A  92D5               	bcf	4053,1,c	;volatile
   1744                           
   1745                           ;timer2.c: 18:     T0PS0 = 1;
-  1746   000776  80D5               	bsf	4053,0,c	;volatile
-  1747   000778                     
+  1746   00076C  80D5               	bsf	4053,0,c	;volatile
+  1747   00076E                     
   1748                           ;timer2.c: 19:     TMR0 = 6;
-  1749   000778  6AD7               	clrf	215,c	;volatile
-  1750   00077A  0E06               	movlw	6
-  1751   00077C  6ED6               	movwf	214,c	;volatile
-  1752   00077E                     
+  1749   00076E  6AD7               	clrf	215,c	;volatile
+  1750   000770  0E06               	movlw	6
+  1751   000772  6ED6               	movwf	214,c	;volatile
+  1752   000774                     
   1753                           ;timer2.c: 20:     TMR0IF = 0;
-  1754   00077E  94F2               	bcf	4082,2,c	;volatile
-  1755   000780                     
+  1754   000774  94F2               	bcf	4082,2,c	;volatile
+  1755   000776                     
   1756                           ;timer2.c: 21:     TMR0IE = 1;
-  1757   000780  8AF2               	bsf	4082,5,c	;volatile
-  1758   000782  0012               	return		;funcret
-  1759   000784                     __end_of_init_timer0:
+  1757   000776  8AF2               	bsf	4082,5,c	;volatile
+  1758   000778  0012               	return		;funcret
+  1759   00077A                     __end_of_init_timer0:
   1760                           	callstack 0
   1761                           
   1762 ;; *************** function _isr *****************
@@ -1826,7 +1825,7 @@ Microchip MPLAB XC8 C Compiler v4.00 build 20260614213421 Og1
   1810   000606  EF07  F003         	goto	i2u7_41
   1811   00060A  EF09  F003         	goto	i2u7_40
   1812   00060E                     i2u7_41:
-  1813   00060E  EF43  F003         	goto	i2l93
+  1813   00060E  EF3E  F003         	goto	i2l92
   1814   000612                     i2u7_40:
   1815   000612                     
   1816                           ;isr.c: 18:         TMR0 = TMR0 + 8;
@@ -1850,15 +1849,15 @@ Microchip MPLAB XC8 C Compiler v4.00 build 20260614213421 Og1
   1834   000630  EF1C  F003         	goto	i2u8_41
   1835   000634  EF1E  F003         	goto	i2u8_40
   1836   000638                     i2u8_41:
-  1837   000638  EF21  F003         	goto	i2l937
+  1837   000638  EF21  F003         	goto	i2l936
   1838   00063C                     i2u8_40:
   1839   00063C                     
   1840                           ;isr.c: 21:             RB0=1;
   1841   00063C  8081               	bsf	3969,0,c	;volatile
   1842                           
   1843                           ;isr.c: 22:         }
-  1844   00063E  EF33  F003         	goto	i2l941
-  1845   000642                     i2l937:
+  1844   00063E  EF33  F003         	goto	i2l940
+  1845   000642                     i2l936:
   1846   000642  5008               	movf	isr@itr^0,w,c
   1847   000644  6E09               	movwf	??_isr^0,c
   1848   000646  6A0A               	clrf	(??_isr+1)^0,c
@@ -1877,12 +1876,12 @@ Microchip MPLAB XC8 C Compiler v4.00 build 20260614213421 Og1
   1861   00065E  9081               	bcf	3969,0,c	;volatile
   1862                           
   1863                           ;isr.c: 25:         }
-  1864   000660  EF33  F003         	goto	i2l941
+  1864   000660  EF33  F003         	goto	i2l940
   1865   000664                     i2l88:
   1866                           
   1867                           ;isr.c: 27:             itr=0;
   1868   000664  6A08               	clrf	isr@itr^0,c
-  1869   000666                     i2l941:
+  1869   000666                     i2l940:
   1870                           
   1871                           ;isr.c: 30:         if(flag){
   1872   000666  5006               	movf	_flag^0,w,c	;volatile
@@ -1891,82 +1890,73 @@ Microchip MPLAB XC8 C Compiler v4.00 build 20260614213421 Og1
   1875   00066C  EF3A  F003         	goto	i2u10_41
   1876   000670  EF3C  F003         	goto	i2u10_40
   1877   000674                     i2u10_41:
-  1878   000674  EF40  F003         	goto	i2l947
+  1878   000674  EF3E  F003         	goto	i2l92
   1879   000678                     i2u10_40:
   1880   000678                     
   1881                           ;isr.c: 31:             timer_count++;
   1882   000678  4A02               	infsnz	isr@timer_count^0,f,c
   1883   00067A  2A03               	incf	(isr@timer_count+1)^0,f,c
-  1884                           
-  1885                           ;isr.c: 32:             if(timer_count>=100000){
-  1886   00067C  EF43  F003         	goto	i2l93
-  1887   000680                     i2l947:
-  1888                           
-  1889                           ;isr.c: 39:             timer_count=0;
-  1890   000680  6A03               	clrf	(isr@timer_count+1)^0,c
-  1891   000682  0E00               	movlw	0
-  1892   000684  6E02               	movwf	isr@timer_count^0,c
-  1893   000686                     i2l93:
-  1894   000686  9201               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
-  1895   000688  0011               	retfie		f
-  1896   00068A                     __end_of_isr:
-  1897                           	callstack 0
+  1884   00067C                     i2l92:
+  1885   00067C  9201               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+  1886   00067E  0011               	retfie		f
+  1887   000680                     __end_of_isr:
+  1888                           	callstack 0
+  1889                           
+  1890                           	psect	smallconst
+  1891   000600                     __psmallconst:
+  1892                           	callstack 0
+  1893   000600  00                 	db	0
+  1894   000601  00                 	db	0	; dummy byte at the end
+  1895   000600                     __smallconst    set	__psmallconst
+  1896   000600                     __mediumconst   set	__psmallconst
+  1897   000000                     __activetblptr  equ	0
   1898                           
-  1899                           	psect	smallconst
-  1900   000600                     __psmallconst:
-  1901                           	callstack 0
-  1902   000600  00                 	db	0
-  1903   000601  00                 	db	0	; dummy byte at the end
-  1904   000600                     __smallconst    set	__psmallconst
-  1905   000600                     __mediumconst   set	__psmallconst
-  1906   000000                     __activetblptr  equ	0
-  1907                           
-  1908                           	psect	rparam
-  1909   000001                     ___rparam_used  equ	1
-  1910   000000                     ___param_bank   equ	0
-  1911   000000                     __Lparam        equ	__Lrparam
-  1912   000000                     __Hparam        equ	__Hrparam
-  1913   000001                     btemp           set	1	;btemp
-  1914   000001                     int$flags       set	1
-  1915   000001                     btemp0          set	1
-  1916   000002                     btemp1          set	2
-  1917                           tosu	equ	0xFFF
-  1918                           tosh	equ	0xFFE
-  1919                           tosl	equ	0xFFD
-  1920                           stkptr	equ	0xFFC
-  1921                           pclatu	equ	0xFFB
-  1922                           pclath	equ	0xFFA
-  1923                           pcl	equ	0xFF9
-  1924                           tblptru	equ	0xFF8
-  1925                           tblptrh	equ	0xFF7
-  1926                           tblptrl	equ	0xFF6
-  1927                           tablat	equ	0xFF5
-  1928                           prodh	equ	0xFF4
-  1929                           prodl	equ	0xFF3
-  1930                           indf0	equ	0xFEF
-  1931                           postinc0	equ	0xFEE
-  1932                           postdec0	equ	0xFED
-  1933                           preinc0	equ	0xFEC
-  1934                           plusw0	equ	0xFEB
-  1935                           fsr0h	equ	0xFEA
-  1936                           fsr0l	equ	0xFE9
-  1937                           wreg	equ	0xFE8
-  1938                           indf1	equ	0xFE7
-  1939                           postinc1	equ	0xFE6
-  1940                           postdec1	equ	0xFE5
-  1941                           preinc1	equ	0xFE4
-  1942                           plusw1	equ	0xFE3
-  1943                           fsr1h	equ	0xFE2
-  1944                           fsr1l	equ	0xFE1
-  1945                           bsr	equ	0xFE0
-  1946                           indf2	equ	0xFDF
-  1947                           postinc2	equ	0xFDE
-  1948                           postdec2	equ	0xFDD
-  1949                           preinc2	equ	0xFDC
-  1950                           plusw2	equ	0xFDB
-  1951                           fsr2h	equ	0xFDA
-  1952                           fsr2l	equ	0xFD9
-  1953                           status	equ	0xFD8
+  1899                           	psect	rparam
+  1900   000001                     ___rparam_used  equ	1
+  1901   000000                     ___param_bank   equ	0
+  1902   000000                     __Lparam        equ	__Lrparam
+  1903   000000                     __Hparam        equ	__Hrparam
+  1904   000001                     btemp           set	1	;btemp
+  1905   000001                     int$flags       set	1
+  1906   000001                     btemp0          set	1
+  1907   000002                     btemp1          set	2
+  1908                           tosu	equ	0xFFF
+  1909                           tosh	equ	0xFFE
+  1910                           tosl	equ	0xFFD
+  1911                           stkptr	equ	0xFFC
+  1912                           pclatu	equ	0xFFB
+  1913                           pclath	equ	0xFFA
+  1914                           pcl	equ	0xFF9
+  1915                           tblptru	equ	0xFF8
+  1916                           tblptrh	equ	0xFF7
+  1917                           tblptrl	equ	0xFF6
+  1918                           tablat	equ	0xFF5
+  1919                           prodh	equ	0xFF4
+  1920                           prodl	equ	0xFF3
+  1921                           indf0	equ	0xFEF
+  1922                           postinc0	equ	0xFEE
+  1923                           postdec0	equ	0xFED
+  1924                           preinc0	equ	0xFEC
+  1925                           plusw0	equ	0xFEB
+  1926                           fsr0h	equ	0xFEA
+  1927                           fsr0l	equ	0xFE9
+  1928                           wreg	equ	0xFE8
+  1929                           indf1	equ	0xFE7
+  1930                           postinc1	equ	0xFE6
+  1931                           postdec1	equ	0xFE5
+  1932                           preinc1	equ	0xFE4
+  1933                           plusw1	equ	0xFE3
+  1934                           fsr1h	equ	0xFE2
+  1935                           fsr1l	equ	0xFE1
+  1936                           bsr	equ	0xFE0
+  1937                           indf2	equ	0xFDF
+  1938                           postinc2	equ	0xFDE
+  1939                           postdec2	equ	0xFDD
+  1940                           preinc2	equ	0xFDC
+  1941                           plusw2	equ	0xFDB
+  1942                           fsr2h	equ	0xFDA
+  1943                           fsr2l	equ	0xFD9
+  1944                           status	equ	0xFD8
 
 Data Sizes:
     Strings     0
@@ -2107,77 +2097,77 @@ DATA                 0      0      18      0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V4.00 build 20260614213421 
-Symbol Table                                                                                   Fri Oct 23 11:16:27 2026
+Symbol Table                                                                                   Fri Oct 23 11:39:56 2026
 
-                               l36 0792                                 l29 06FC  
-                               l64 0782                                 u10 069C  
-                               u11 0698                                 u20 06B0  
-                               u21 06AC                                 u30 06C0  
-                               u31 06BC                                 u40 06DE  
-                               u41 06DA                                 u50 06F6  
-                               u51 06F2                                 u60 0724  
-                               u61 0720                                l901 06CA  
-                              l903 06DE                                l911 06FA  
-                              l921 0790                                l905 06E6  
-                              l915 0784                                l923 06FE  
-                              l917 078A                                l925 0702  
-                              l919 078E                                l927 0710  
-                              l881 0778                                l929 0724  
-                              l883 077E                                l891 06B0  
-                              l885 0780                                l893 06C0  
-                              l879 076E                                l895 06C2  
-                              l887 068C                                l889 069C  
+                               l36 0788                                 l29 06F2  
+                               l64 0778                                 u10 0692  
+                               u11 068E                                 u20 06A6  
+                               u21 06A2                                 u30 06B6  
+                               u31 06B2                                 u40 06D4  
+                               u41 06D0                                 u50 06EC  
+                               u51 06E8                                 u60 071A  
+                               u61 0716                                l900 06C0  
+                              l902 06D4                                l910 06F0  
+                              l920 0786                                l904 06DC  
+                              l914 077A                                l922 06F4  
+                              l916 0780                                l924 06F8  
+                              l918 0784                                l926 0706  
+                              l880 076E                                l928 071A  
+                              l882 0774                                l890 06A6  
+                              l884 0776                                l892 06B6  
+                              l878 0764                                l894 06B8  
+                              l886 0682                                l888 0692  
                               _GIE 7F97                                _RB0 7C08  
                               _PSA 7EAB                                _isr 0008  
                               wreg 0FE8              ??_read_digital_keypad 000B  
                              ?_isr 0009                               _T0CS 7EAD  
-                             _PEIE 7F96                               i2l93 0686  
+                             _PEIE 7F96                               i2l92 067C  
                              i2l88 0664                               _TMR0 0FD6  
-                             _flag 0006                               _main 06FE  
+                             _flag 0006                               _main 06F4  
                              fsr1l 0FE1                               btemp 0001  
                              start 000E                       ___param_bank 0000  
                             ??_isr 0009                              ?_main 0009  
                             _T0PS0 7EA8                              _T0PS1 7EA9  
                             _T0PS2 7EAA                       ?_init_config 0009  
-                            i2l931 0604                              i2l941 0666  
-                            i2l933 0612                              i2l943 0678  
-                            i2l935 063C                              i2l937 0642  
-                            i2l947 0680                              i2l939 065E  
-                            _PORTB 0F81                              _PORTC 0F82  
-                            _TRISB 0F93                       ?_init_timer0 0009  
-                            _delay 0004                              btemp0 0001  
-                            btemp1 0002                              tablat 0FF5  
-                            status 0FD8                    __initialization 0738  
-                     __end_of_main 0738                             ??_main 000C  
-                    __activetblptr 0000                             _TMR0IE 7F95  
-                           _TMR0IF 7F92                             i2u7_40 0612  
-                           i2u7_41 060E                             i2u8_40 063C  
-                           i2u8_41 0638                             i2u9_40 065E  
-                           i2u9_41 065A                             clear_0 075E  
-                           _period 000F                             isa$std 0001  
-                           isr@itr 0008                       __pdataCOMRAM 000F  
-                     __mediumconst 0600                             tblptrh 0FF7  
-                           tblptrl 0FF6                             tblptru 0FF8  
-                       __accesstop 0060            __end_of__initialization 0764  
-                    ___rparam_used 0001                     __pcstackCOMRAM 0009  
-      __end_of_read_digital_keypad 06FE                            i2u10_40 0678  
-                          i2u10_41 0674                            __Hparam 0000  
-                          __Lparam 0000                       __psmallconst 0600  
-                          __pcinit 0738                            __ramtop 0600  
-                          __ptext0 06FE                            __ptext1 068A  
-                          __ptext2 0784                            __ptext3 076E  
-                       _duty_cycle 0011                            main@key 000D  
-                   __pintcode_body 0602               end_of_initialization 0764  
-                          int_func 0602                            postdec1 0FE5  
-                          postinc0 0FEE                      __pidataCOMRAM 0794  
-              start_initialization 0738                        __end_of_isr 068A  
-                    ??_init_config 000B                      ??_init_timer0 000B  
-                      __pbssCOMRAM 0002                     isr@timer_count 0002  
-                        __pintcode 0008                        __smallconst 0600  
-              __end_of_init_config 0794                __end_of_init_timer0 0784  
-read_digital_keypad@detection_type 000B                          copy_data0 074C  
-                         __Hrparam 0000                           __Lrparam 0000  
-                      _init_config 0784                        _init_timer0 076E  
-          read_digital_keypad@once 0013                           isa$xinst 0000  
-                         int$flags 0001                           intlevel2 0000  
-              _read_digital_keypad 068A               ?_read_digital_keypad 0009  
+                            i2l930 0604                              i2l940 0666  
+                            i2l932 0612                              i2l942 0678  
+                            i2l934 063C                              i2l936 0642  
+                            i2l938 065E                              _PORTB 0F81  
+                            _PORTC 0F82                              _TRISB 0F93  
+                     ?_init_timer0 0009                              _delay 0004  
+                            btemp0 0001                              btemp1 0002  
+                            tablat 0FF5                              status 0FD8  
+                  __initialization 072E                       __end_of_main 072E  
+                           ??_main 000C                      __activetblptr 0000  
+                           _TMR0IE 7F95                             _TMR0IF 7F92  
+                           i2u7_40 0612                             i2u7_41 060E  
+                           i2u8_40 063C                             i2u8_41 0638  
+                           i2u9_40 065E                             i2u9_41 065A  
+                           clear_0 0754                             _period 000F  
+                           isa$std 0001                             isr@itr 0008  
+                     __pdataCOMRAM 000F                       __mediumconst 0600  
+                           tblptrh 0FF7                             tblptrl 0FF6  
+                           tblptru 0FF8                         __accesstop 0060  
+          __end_of__initialization 075A                      ___rparam_used 0001  
+                   __pcstackCOMRAM 0009        __end_of_read_digital_keypad 06F4  
+                          i2u10_40 0678                            i2u10_41 0674  
+                          __Hparam 0000                            __Lparam 0000  
+                     __psmallconst 0600                            __pcinit 072E  
+                          __ramtop 0600                            __ptext0 06F4  
+                          __ptext1 0680                            __ptext2 077A  
+                          __ptext3 0764                         _duty_cycle 0011  
+                          main@key 000D                     __pintcode_body 0602  
+             end_of_initialization 075A                            int_func 0602  
+                          postdec1 0FE5                            postinc0 0FEE  
+                    __pidataCOMRAM 078A                start_initialization 072E  
+                      __end_of_isr 0680                      ??_init_config 000B  
+                    ??_init_timer0 000B                        __pbssCOMRAM 0002  
+                   isr@timer_count 0002                          __pintcode 0008  
+                      __smallconst 0600                __end_of_init_config 078A  
+              __end_of_init_timer0 077A  read_digital_keypad@detection_type 000B  
+                        copy_data0 0742                           __Hrparam 0000  
+                         __Lrparam 0000                        _init_config 077A  
+                      _init_timer0 0764            read_digital_keypad@once 0013  
+                         isa$xinst 0000                           int$flags 0001  
+                         intlevel2 0000                _read_digital_keypad 0680  
+             ?_read_digital_keypad 0009  

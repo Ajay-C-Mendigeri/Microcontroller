@@ -18204,9 +18204,6 @@ void __attribute__((picinterrupt(("")))) isr(){
                 timer_count=0;
             }
         }
-        else{
-            timer_count=0;
-        }
 
     }
 }

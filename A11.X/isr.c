@@ -35,9 +35,6 @@ void __interrupt() isr(){
                 timer_count=0;
             }
         }
-        else{
-            timer_count=0;
-        }
-        
+      
     }
 }

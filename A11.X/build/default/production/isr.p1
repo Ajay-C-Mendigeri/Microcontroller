@@ -1348,23 +1348,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37
 [; ;isr.c: 37:         }
 }
-[e $U 1118  ]
-"38
-[; ;isr.c: 38:         else{
 [e :U 1116 ]
-{
 "39
-[; ;isr.c: 39:             timer_count=0;
-[e = F10608 -> -> 0 `i `ui ]
-"40
-[; ;isr.c: 40:         }
-}
-[e :U 1118 ]
-"42
-[; ;isr.c: 42:     }
+[; ;isr.c: 39:     }
 }
 [e :U 1111 ]
-"43
-[; ;isr.c: 43: }
+"40
+[; ;isr.c: 40: }
 [e :UE 1110 ]
 }
