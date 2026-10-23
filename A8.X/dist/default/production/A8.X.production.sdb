@@ -63,9 +63,9 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v4.00\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"13 D:\MicroController\A8.X\isr.c
+"13 D:\Microcontroller\A8.X\isr.c
 [v _isr isr `IIH(v  1 e 1 0 ]
-"17 D:\MicroController\A8.X\main.c
+"17 D:\Microcontroller\A8.X\main.c
 [v _init_config init_config `(v  1 e 1 0 ]
 "32
 [v _read_dkp read_dkp `(uc  1 e 1 0 ]
@@ -73,7 +73,7 @@
 [v _display display `(v  1 e 1 0 ]
 "62
 [v _main main `(v  1 e 1 0 ]
-"11 D:\MicroController\A8.X\timer0.c
+"11 D:\Microcontroller\A8.X\timer0.c
 [v _init_timer0 init_timer0 `(v  1 e 1 0 ]
 "25503 C:/Program Files/Microchip/MPLABX/v6.35/packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4580.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
@@ -101,7 +101,7 @@
 [v _TMR0IE TMR0IE `VEb  1 e 0 @32661 ]
 "39274
 [v _TMR0IF TMR0IF `VEb  1 e 0 @32658 ]
-"12 D:\MicroController\A8.X\main.c
+"12 D:\Microcontroller\A8.X\main.c
 [v _hour hour `VEuc  1 e 1 0 ]
 "13
 [v _minute minute `VEuc  1 e 1 0 ]
@@ -145,12 +145,12 @@
 {
 "30
 } 0
-"11 D:\MicroController\A8.X\timer0.c
+"11 D:\Microcontroller\A8.X\timer0.c
 [v _init_timer0 init_timer0 `(v  1 e 1 0 ]
 {
 "18
 } 0
-"51 D:\MicroController\A8.X\main.c
+"51 D:\Microcontroller\A8.X\main.c
 [v _display display `(v  1 e 1 0 ]
 {
 [v display@ssd ssd `*.30uc  1 p 1 0 ]
@@ -187,7 +187,7 @@
 [v ___awdiv@sign sign `uc  1 a 1 5 ]
 "41
 } 0
-"13 D:\MicroController\A8.X\isr.c
+"13 D:\Microcontroller\A8.X\isr.c
 [v _isr isr `IIH(v  1 e 1 0 ]
 {
 "24
